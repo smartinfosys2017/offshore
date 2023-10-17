@@ -1,0 +1,71 @@
+{
+    "menu": [
+      {
+        "id": 1,
+        "label": "Home",
+        "path": "/"
+      },
+      {
+        "id": 2,
+        "label": "About Us",
+        "path": "/about",
+        "submenu": [
+          {
+            "id": 3,
+            "label": "Mission",
+            "path": "/about/mission"
+          },
+          {
+            "id": 4,
+            "label": "Vision",
+            "path": "/about/vision",
+            "insidemenu":[
+              {
+                "id": 10,
+                "label": "InSide Menu",
+                "path": "/about/vision/inSide menu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "label": "Contact Us",
+        "path": "/contact"
+      },
+      {
+        "id": 6,
+        "label": "Services",
+        "path": "/services",
+        "submenu": [
+          {
+            "id": 7,
+            "label": "Web Development",
+            "path": "/services/web-development"
+          },
+          {
+            "id": 8,
+            "label": "Mobile App Development",
+            "path": "/services/mobile-app-development"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "label": "Clients",
+        "path": "/clients"
+      },
+      {
+        "id": 5,
+        "label": "Faqs",
+        "path": "/faqs"
+      },
+      {
+        "id": 5,
+        "label": "Blogs",
+        "path": "/blogs"
+      }
+    ]
+  }
+  
