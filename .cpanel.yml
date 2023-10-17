@@ -1,7 +1,7 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/offshorereactjs/public_html/
-    - /bin/cp -Rgi offshore $DEPLOYPATH
+    - /bin/cp -R offshore $DEPLOYPATH
     # - /bin/cp style.css $DEPLOYPATH
 
 
