@@ -1,0 +1,43 @@
+name: Deploy to CPanel
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up SSH keys
+        run: |
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.CPANEL_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Build React app
+        run: |
+          npm run build
+
+      - name: Deploy to CPanel
+        uses: appleboy/ssh-action@v0.6.1
+        with:
+          host: ${{ secrets.CPANEL_HOST }}
+          username: offshorereactjs
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            # Assuming your React app is in the 'build' directory
+            rsync -r --delete-after ./build/* offshorereactjs@${{ secrets.CPANEL_HOST }}:~/public_html/
