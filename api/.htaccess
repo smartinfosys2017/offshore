@@ -1,0 +1,10 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Set the base path for the rewrite rules (adjust as needed)
+RewriteBase /api/
+
+# Redirect requests to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]
