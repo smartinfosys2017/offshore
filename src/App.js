@@ -7,6 +7,7 @@ import Navigation from './components/Header/Navigation';
 import Footer from './components/Footer/Footer';
 import Slider from './components/Common/CustomSlider';
 import CommonPage from './components/Common/CommonPage';
+import Carousel from './components/Common/Carousel';
 import './App.css';
 
 const App = () => {
@@ -91,6 +92,7 @@ const App = () => {
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + sliderData.length) % sliderData.length);
   };
+
 // Display Slider
 
 useEffect(() => {
@@ -122,6 +124,16 @@ useEffect(() => {
   }
 }, [showSlider, sliderData, currentIndex, nextSlide, prevSlide]);
 
+// Display Carousel
+
+  const images =   [
+    'https://picsum.photos/200/300',
+    'https://picsum.photos/200',
+    'https://placekitten.com/800/400',
+    'https://placekitten.com/801/400',
+    'https://placekitten.com/802/400',
+  ];
+
   return (
     <Router>
       <Navigation data={apiData} onMenuItemClick={handleMenuItemClick} />
@@ -132,6 +144,7 @@ useEffect(() => {
       <div>
 
         <div style={{ backgroundColor: 'black' }}  >
+          {/* <Carousel images={images}/> */}
           <CommonPage content={pageContent} />
         </div>
       </div>
@@ -141,3 +154,6 @@ useEffect(() => {
   );
 };
 export default App
+
+
+// git remote add origin https://github.com/smartinfosys2017/offshore.git
