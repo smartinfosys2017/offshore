@@ -1,0 +1,88 @@
+/* App.css */
+
+.page {
+    text-align: center;
+    padding: 80px 20px 20px;
+  }
+  
+  .navigation {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+  }
+  
+  .navigation ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .navigation li {
+    margin: 0 10px;
+  }
+  
+  .navigation a {
+    text-decoration: none;
+    color: white;
+  }
+/* ******************************************************************** */
+
+/*header#header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1)
+}
+
+
+
+ header#header .top-bar {
+  padding: .5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1)
+}
+
+header#header.sticky .top-bar {
+  background: var(--secondary-color)
+}
+
+header#header a.logo {
+  display: inline-block;
+  line-height: 1
+}
+
+header#header .logo img,header#header .logo svg {
+  width: 7rem
+}
+
+header#header .logo .logoshape1,header#header .logo .logoshape3 {
+  fill: #77838f
+}
+
+header #iconList a {
+  color: #fff
+}
+
+header #iconList a:hover {
+  color: var(--primary-color)
+}
+
+header.sticky #iconList a {
+  color: var(--primary-color)
+}
+
+header.sticky #iconList a:hover {
+  color: var(--primary-color-hover)
+}
+
+header .logo .logoshape2 {
+  fill: var(--primary-color)
+} */
+
+  
+
+/* git clone -b _branch_offshore https://github.com/smartinfosys2017/_branch_offshore.git
+ https://github.com/smartinfosys2017/react-js.git
+ */

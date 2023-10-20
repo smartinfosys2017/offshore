@@ -1,0 +1,21 @@
+/* Address.css */
+
+.address-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+  }
+  
+  .column {
+    width: 48%; /* Adjust the width as needed */
+    
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  /* Add additional styles as needed */
+  

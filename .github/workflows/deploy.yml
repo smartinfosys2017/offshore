@@ -1,0 +1,36 @@
+name: Deploy to CPanel
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install dependencies and build React app
+        run: |
+           cd offshore
+          npm install
+          npm run build
+
+      - name: Deploy to CPanel
+        uses: appleboy/ssh-action@v0.6.1
+        with:
+          host: 108.160.155.129
+          username: offshorereactjs
+          key: | ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCuTEA12XHAHjGgVfv9WWGTxDax6n7TOdciXtKTuPlCfU6IGIqudnCSEQOfz6ER1DnQ5u77/y8v/tw7Q44jwjf+iJpcmx0JNS582gOrxX5qffjXBY8iLb6ANXRLn5/IkZz09BtntdlhFtTirhHOQmQTfxmqef7a+aHtY/3ZY5FZw2WfwWMki3o77te3x2lMsg8BGcRVkYKR9kYj1tGZZdVOl5HWwd/lJHf2RkJQpbP4E6DO4sVAwyX0DWPgin/wgUS/A6Q60I4O1sGL6XnDkWP/jq4ZYhR+cRCth734DsxM/ZU3OpyLb2YleXV//rwXnxXZ3a9whgWaubb/uxf5R/rUwQJQNqHHpH3oFxbwn2t4pSF3udUF4P+XbFqsq66wUkK6dh0kfl55AFsvuj00rrRiWqfP6DFvvBVAnu94/dbVQn6BccWQxFkwYykWwt1t7DzB3aI3Jyg6LLoD9Mn7FPMtZ1LJ2nNoeC+8eTXd7VDSQrFlF2o3eGc96Uiu5oVpfkvRjCvW5Ivl0DRueG4tiD/a22DasT866ebDTY/vB2c2lIfdLplhgNQb/tipiy6U82/Z73oPN9WNYNPXImMrHXLSW4FRugfwXXPHUnK/dmhS2z/PNtIgw9EsZxajN3r2MPOC6bbNtvOhC6I1jd4GCtswHJRpnqsJ0UrB5q9nG/auqQ== offshorereactjs@offshorereactjs.com
+          script: |
+            cd ~/public_html
+            rm -rf *
+            cp -r $GITHUB_WORKSPACE/offshore/build/* .
